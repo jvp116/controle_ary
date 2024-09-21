@@ -1,0 +1,173 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #121212;
+    /* Fundo escuro */
+    color: #e0e0e0;
+    /* Texto claro */
+}
+
+h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #ffffff;
+    /* Título em branco */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #ffffff;
+    /* Labels em branco */
+}
+
+input[type="date"],
+input[type="text"] {
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    background-color: #333333;
+    /* Fundo dos inputs escuro */
+    color: #e0e0e0;
+    /* Texto dos inputs claro */
+    border: 1px solid #444444;
+    /* Borda dos inputs */
+}
+
+input[type="submit"],
+button {
+    padding: 15px;
+    margin-top: 30px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background-color: #45a049;
+}
+
+.lucro {
+    font-weight: bold;
+}
+
+.positivo {
+    color: #4CAF50;
+    /* Verde para lucro positivo */
+}
+
+.negativo {
+    color: #FF4081;
+    /* Vermelho para lucro negativo */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #444444;
+    /* Borda das células */
+}
+
+th {
+    background-color: #333333;
+    /* Fundo dos cabeçalhos */
+    color: #ffffff;
+    /* Texto dos cabeçalhos em branco */
+}
+
+td {
+    background-color: #222222;
+    /* Fundo das células em um tom escuro */
+    color: #e0e0e0;
+    /* Texto das células em claro */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.btn_relatorio {
+    padding: 10px;
+    background-color: #8f851d9d;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.btn_relatorio:hover {
+    background-color: #a099489d;
+}
+
+.error {
+    color: #ff4081;
+    /* Mensagem de erro em rosa */
+    font-size: 18px;
+}
+
+.relatorio {
+    margin-top: 20px;
+    font-size: 25px;
+    text-align: center;
+    color: #e0e0e0;
+    /* Texto do relatório em claro */
+}
+
+.modal {
+    display: none;
+    /* Esconder o modal por padrão */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Fundo escuro */
+}
+
+.modal-content {
+    background-color: #121212;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    color: #e0e0e0;
+    /* Texto claro */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}

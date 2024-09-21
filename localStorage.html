@@ -1,0 +1,22 @@
+<script>
+    function calcularTamanhoLocalStorage() {
+        let total = 0;
+
+        // Itera por cada item no localStorage
+        for (let i = 0; i < localStorage.length; i++) {
+            const chave = localStorage.key(i);
+            const valor = localStorage.getItem(chave);
+
+            // Calcula o tamanho do par chave-valor
+            total += chave.length + valor.length;
+        }
+
+        // O tamanho está em bytes, converte para KB
+        const tamanhoKB = (total / 1024).toFixed(2);
+        return tamanhoKB;
+    }
+
+    const tamanhoArmazenado = calcularTamanhoLocalStorage();
+    console.log(`O localStorage está ocupando aproximadamente ${tamanhoArmazenado} KB.`);
+
+</script>

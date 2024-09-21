@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Resultados</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Registro Diário</h1>
+        <button class="btn_relatorio" onclick="gerarRelatorio()">Ver Relatório</button>
+    </div>
+
+    <form id="resultadoForm">
+        <label for="data">Data:</label>
+        <input type="date" id="data" name="data" required>
+
+        <label for="ganhos">Ganhos (R$):</label>
+        <input type="text" id="ganhos" name="ganhos" required>
+
+        <label for="gastos">Gastos (R$):</label>
+        <input type="text" id="gastos" name="gastos" required>
+
+        <span id="errorMessage" class="error"></span>
+
+        <input type="submit" value="Salvar">
+    </form>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModal()">&times;</span>
+            <div class="relatorio" id="relatorioResultado"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
