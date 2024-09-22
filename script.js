@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-document.getElementById('data').addEventListener('click', function() {
+document.getElementById('data').addEventListener('click', function () {
     this.showPicker(); // Força a abertura do calendário
 });
 
@@ -109,37 +109,46 @@ function gerarRelatorio() {
     const lucroClassMensal = lucroMensal < 0 ? 'negativo' : 'positivo';
 
     relatorioResultado.innerHTML = `
-        <h2>Relatório - ${mesAtual}</h2>
-        <hr/>
-        <table>
-            <tr>
-                <th></th>
-                <th>Semana (R$)</th>
-                <th>Mês (R$)</th>
-            </tr>
-            <tr>
-                <td>Ganhos</td>
-                <td>${ganhosSemanal.toFixed(2).replace('.', ',')}</td>
-                <td>${ganhosMensal.toFixed(2).replace('.', ',')}</td>
-            </tr>
-            <tr>
-                <td>Gastos</td>
-                <td>${gastosSemanal.toFixed(2).replace('.', ',')}</td>
-                <td>${gastosMensal.toFixed(2).replace('.', ',')}</td>
-            </tr>
-            <tr class="lucro">
-                <td>Lucro</td>
-                <td class="${lucroClassSemanal}">${lucroSemanal.toFixed(2).replace('.', ',')}</td>
-                <td class="${lucroClassMensal}">${lucroMensal.toFixed(2).replace('.', ',')}</td>
-            </tr>
-        </table>
+        <span class="close" onclick="fecharModal()">&times;</span>
+        <h2 class="mes">${mesAtual}</h2>
+        <div class="container">
+            <div class="card">
+                <div class="info">
+                <p class="title">Ganhos</p>
+                    <div class="resultado">
+                        <p class="cifrao">R$</p>
+                        <p class="value" id="ganhos">${ganhosMensal.toFixed(2).replace('.', ',')}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="info">
+                    <p class="title">Gastos</p>
+                    <div class="resultado">
+                        <p class="cifrao">R$</p>
+                        <p class="value" id="gastos">${gastosMensal.toFixed(2).replace('.', ',')}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="info">
+                    <p class="title">Lucro</p>
+                    <div class="resultado">
+                        <p class="cifrao">R$</p>
+                        <p class="${lucroClassMensal}" id="gastos">${lucroMensal.toFixed(2).replace('.', ',')}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     `;
 
     document.getElementById('modal').style.display = 'block'; // Exibir o modal
 }
 
 function fecharModal() {
-    document.getElementById('modal').style.display = 'none'; // Ocultar o modal
+    document.getElementById('modal').style.display = 'none';
 }
 
 // Fechar o modal quando clicar fora dele

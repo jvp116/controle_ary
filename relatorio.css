@@ -1,0 +1,85 @@
+.modal {
+    display: none;
+    /* Esconder o modal por padrão */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Fundo escuro */
+}
+
+.modal-content {
+    background-color: #121212;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 12px;
+    width: 80%;
+    height: 80%;
+}
+
+.close {
+    color: #aaa;
+    font-size: xx-large;
+    font-weight: bold;
+    text-align: end;
+    display: block;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 8px;
+    width: 142px;
+    text-align: center;
+}
+
+.info .title {
+    font-weight: bold;
+    font-size: large;
+    color: #00000091;
+    margin: auto;
+}
+
+.info .value {
+    margin: auto;
+    font-size: xx-large;
+    font-weight: bold;
+    color: black;
+}
+
+.cifrao {
+    font-weight: bold;
+    color: black;
+}
+
+.resultado {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.mes {
+    text-transform: capitalize;
+    text-align: center;
+    font-size: xx-large;
+    margin: 0 0 24px 0;
+}
