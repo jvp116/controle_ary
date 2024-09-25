@@ -141,10 +141,13 @@ function gerarRelatorio() {
                     </div>
                 </div>
             </div>
+
         </div>
+       
     `;
 
     document.getElementById('modal').style.display = 'block'; // Exibir o modal
+    obterGrafico();
 }
 
 function fecharModal() {
@@ -157,4 +160,68 @@ window.onclick = function (event) {
     if (event.target === modal) {
         modal.style.display = 'none';
     }
+}
+
+function obterGrafico() {
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    const data = {
+        labels: ['1', '2', '3', '4'],
+        datasets: [
+            {
+                label: '',
+                data: [600, 100, 380, 90],
+                backgroundColor: 'rgba(0, 128, 0, 0.7)', // Cor verde transparente
+                borderColor: 'rgb(0, 128, 0, 1)', // Borda verde
+                borderWidth: 2
+            },
+            {
+                label: '',
+                data: [400, 400, 80, 800],
+                backgroundColor: 'rgba(255, 0, 0, 0.7)', // Cor vermelha transparente
+                borderColor: 'rgba(255, 0, 0, 1)', // Borda vermelha
+                borderWidth: 2
+            }
+        ]
+    };
+
+    const options = {
+        responsive: false,
+        scales: {
+            y: {
+            },
+            x: {
+                ticks: {
+                    color: 'white', // Cor dos rótulos do eixo X
+                    font: {
+                        size: 24
+                    }
+                },
+                title: {
+                    display: true,
+                    text: 'Semana',
+                    color: 'white',
+                    font: {
+                        size: 24
+                    }
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                labels: {
+                    color: 'white', // Cor das legendas
+                    font: {
+                        size: 16
+                    }
+                }
+            }
+        }
+    };
+
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+    });
 }

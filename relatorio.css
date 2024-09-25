@@ -26,8 +26,8 @@
     color: #aaa;
     font-size: xx-large;
     font-weight: bold;
-    text-align: end;
-    display: block;
+    position: absolute;
+    right: 45px;
 }
 
 .close:hover,
@@ -82,4 +82,14 @@
     text-align: center;
     font-size: xx-large;
     margin: 0 0 24px 0;
+}
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+}
+
+.relatorio {
+    display: grid;
+    gap: 48px;
 }

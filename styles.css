@@ -108,11 +108,10 @@ td {
 
 .btn_relatorio {
     background-color: darkslategrey;
-    color: white;
 }
 
 .btn_relatorio:hover {
-    background-color: #a099489d;
+    background-color: #4b7c7c;
 }
 
 .error {
