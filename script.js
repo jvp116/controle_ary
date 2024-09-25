@@ -143,7 +143,9 @@ function gerarRelatorio() {
             </div>
 
         </div>
-       
+        <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+            <canvas id="myChart"></canvas>
+        </div>
     `;
 
     document.getElementById('modal').style.display = 'block'; // Exibir o modal
@@ -169,59 +171,42 @@ function obterGrafico() {
         labels: ['1', '2', '3', '4'],
         datasets: [
             {
-                label: '',
+                label: '', // ganhos
                 data: [600, 100, 380, 90],
-                backgroundColor: 'rgba(0, 128, 0, 0.7)', // Cor verde transparente
-                borderColor: 'rgb(0, 128, 0, 1)', // Borda verde
-                borderWidth: 2
+                backgroundColor: 'rgba(0, 128, 0)',
             },
             {
-                label: '',
+                label: '', // gastos
                 data: [400, 400, 80, 800],
-                backgroundColor: 'rgba(255, 0, 0, 0.7)', // Cor vermelha transparente
-                borderColor: 'rgba(255, 0, 0, 1)', // Borda vermelha
-                borderWidth: 2
+                backgroundColor: 'rgba(255, 0, 0)',
             }
         ]
-    };
-
-    const options = {
-        responsive: false,
-        scales: {
-            y: {
-            },
-            x: {
-                ticks: {
-                    color: 'white', // Cor dos rótulos do eixo X
-                    font: {
-                        size: 24
-                    }
-                },
-                title: {
-                    display: true,
-                    text: 'Semana',
-                    color: 'white',
-                    font: {
-                        size: 24
-                    }
-                }
-            }
-        },
-        plugins: {
-            legend: {
-                labels: {
-                    color: 'white', // Cor das legendas
-                    font: {
-                        size: 16
-                    }
-                }
-            }
-        }
     };
 
     const myChart = new Chart(ctx, {
         type: 'bar',
         data: data,
-        options: options
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Semana',
+                        color: 'white',
+                        font: {
+                            size: 24
+                        }
+                    },
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        },
     });
 }
