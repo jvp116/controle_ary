@@ -73,6 +73,9 @@ function gerarRelatorio() {
     let ganhosMensal = 0;
     let gastosMensal = 0;
 
+    const semanas = [0, 0, 0, 0]; // Array para armazenar os ganhos por semana
+    const semanasGastos = [0, 0, 0, 0]; // Array para armazenar os gastos por semana
+
     const primeiroDiaDaSemana = new Date(dataAtual);
     primeiroDiaDaSemana.setDate(dataAtual.getDate() - dataAtual.getDay()); // Domingo da semana atual
 
@@ -84,7 +87,12 @@ function gerarRelatorio() {
     resultados.forEach(r => {
         const dataResultado = new Date(r.data);
         dataResultado.setDate(dataResultado.getDate() + 2);
+        const semanaDoMes = Math.floor((dataResultado.getDate() - 1) / 7); // Define a semana do mês (0 a 3)
 
+        if (dataResultado.getMonth() === dataAtual.getMonth()) { // Filtra resultados do mês atual
+            semanas[semanaDoMes] += r.ganhos;
+            semanasGastos[semanaDoMes] += r.gastos;
+        }
         if (dataResultado >= primeiroDiaDaSemana && dataResultado <= ultimoDiaDaSemana && dataResultado.getMonth() === mesAtual) {
             ganhosSemanal += r.ganhos;
             gastosSemanal += r.gastos;
@@ -149,7 +157,7 @@ function gerarRelatorio() {
     `;
 
     document.getElementById('modal').style.display = 'block'; // Exibir o modal
-    obterGrafico();
+    obterGrafico(semanas, semanasGastos);
 }
 
 function fecharModal() {
@@ -164,20 +172,20 @@ window.onclick = function (event) {
     }
 }
 
-function obterGrafico() {
+function obterGrafico(ganhosSemanais, gastosSemanais) {
     const ctx = document.getElementById('myChart').getContext('2d');
 
     const data = {
         labels: ['1', '2', '3', '4'],
         datasets: [
             {
-                label: '', // ganhos
-                data: [600, 100, 380, 90],
+                label: '',
+                data: ganhosSemanais,
                 backgroundColor: 'rgba(0, 128, 0)',
             },
             {
-                label: '', // gastos
-                data: [400, 400, 80, 800],
+                label: '',
+                data: gastosSemanais,
                 backgroundColor: 'rgba(255, 0, 0)',
             }
         ]
@@ -194,7 +202,7 @@ function obterGrafico() {
                 x: {
                     title: {
                         display: true,
-                        text: 'Semana',
+                        text: 'Semanas',
                         color: 'white',
                         font: {
                             size: 24
