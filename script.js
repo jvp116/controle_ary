@@ -197,7 +197,8 @@ function obterGrafico(ganhosSemanais, gastosSemanais) {
         options: {
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    min: 100
                 },
                 x: {
                     title: {
